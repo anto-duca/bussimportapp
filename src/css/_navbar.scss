@@ -1,0 +1,25 @@
+@import 'maps';
+
+.nb {
+    display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-flow: row wrap;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: .5em 1em;
+    background-color: color(primary);
+    color: color(secondary);
+    line-height: 0;
+
+    &-logo {
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    li {
+        padding: 1em;
+        cursor: pointer;
+    }
+}
