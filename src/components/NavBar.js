@@ -1,7 +1,7 @@
 import React from 'react';
 import CartWidget from './CartWidget'
 
-export default function NavBar () {
+const NavBar = () => {
     return (
         <nav className='nb z-depth-3'>
             <p className='nb-logo'>Bussimport</p>
@@ -20,7 +20,8 @@ export default function NavBar () {
             <div>
                 <CartWidget/>
             </div>
-
         </nav>
     )
 }
+
+export default NavBar;
