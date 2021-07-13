@@ -7,7 +7,7 @@ const ItemCount = (props) => {
     const [qty, setQty] = useState(1);
 
     return (
-        <div className='card'>
+        <>
             <p> {props.title} </p>
 
             <div className='item-count'>
@@ -20,7 +20,7 @@ const ItemCount = (props) => {
                     <button type='submit' disabled={!props.stock} onClick={()=>props.onAdd(qty, props.stock)} className='item-count__btn'>Agregar al carrito</button>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
