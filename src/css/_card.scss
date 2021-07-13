@@ -23,7 +23,7 @@ $border-radius: 5px;
     overflow: hidden;
 
     img {
-        width: 75%;
+        width: 50%;
         max-height: 245px;
         object-fit: scale-down;
     }
@@ -34,7 +34,7 @@ $border-radius: 5px;
         padding: .5em;
 
         h3 {
-            margin: .5em;
+            margin: .5em 0;
             font-size: 1.5rem;
         }
 

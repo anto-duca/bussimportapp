@@ -60,7 +60,7 @@ body {
 }
 
 .card img {
-  width: 75%;
+  width: 50%;
   max-height: 245px;
   object-fit: scale-down;
 }
@@ -72,7 +72,7 @@ body {
 }
 
 .card__body h3 {
-  margin: .5em;
+  margin: .5em 0;
   font-size: 1.5rem;
 }
 
