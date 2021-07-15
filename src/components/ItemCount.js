@@ -11,7 +11,7 @@ const ItemCount = (props) => {
             <div className='item-count'>
                 <div>
                     <button type='button' onClick={()=>{setQty(Math.max(0, qty - 1))}} className='item-count__qty'>-</button>
-                    <input type='number' disabled value={(props.stock<qty) ? props.stock : qty } className='item-count__input'/>
+                    <input type='number' disabled value={(props.stock<qty) ? props.stock : qty} className='item-count__input'/>
                     <button type='button' onClick={()=>{ (qty<props.stock) ? setQty((qty + 1)) : alert(`Hay ${props.stock} unidades disponibles de este producto`) }} className='item-count__qty'>+</button>
                 </div>
                 <div>
