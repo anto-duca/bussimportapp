@@ -42,7 +42,8 @@ body {
 .prod-container {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -103,6 +104,12 @@ body {
   color: #d0cddb;
   border: 2px solid #37392E;
   cursor: pointer;
+}
+
+.item-count__btn:disabled, .item-count__btn [disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .item-count__input {

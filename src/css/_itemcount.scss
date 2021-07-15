@@ -20,6 +20,12 @@
         border: 2px solid color(primary);
         cursor: pointer;
 
+        &:disabled, [disabled] {
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            color: #666666;
+        }
+
     }
 
     &__input {

@@ -38,7 +38,7 @@ const ItemList = () => {
 
     useEffect(()=>{
         getProducts()
-    }, [])
+    }, [products])
 
     return ( 
         products.map((producto) => {
@@ -47,7 +47,6 @@ const ItemList = () => {
                     key={producto.id}
                     image= {producto.image}
                     title = {producto.title}
-                    description = {producto.description}
                     price = {producto.price}     
                     stock= {producto.stock}   
                     />
