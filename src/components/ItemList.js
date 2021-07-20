@@ -44,7 +44,8 @@ const ItemList = () => {
         products.map((producto) => {
             return (
                     <Item
-                    key={producto.id}
+                    key= {producto.id}
+                    id= {producto.id}
                     image= {producto.image}
                     title = {producto.title}
                     price = {producto.price}     

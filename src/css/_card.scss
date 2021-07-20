@@ -4,10 +4,6 @@ $border-radius: 5px;
     display: flex;
         justify-content: center;
         align-items: center;
-    // display: flex;
-    //     flex-wrap: wrap;
-    //     flex-direction: column;
-    //     align-items: center;
 }
 
 .card {
@@ -20,8 +16,15 @@ $border-radius: 5px;
     width: 325px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 20px rgba(184, 168, 168, 0.2);
     overflow: hidden;
+
+    a {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    }
 
     img {
         width: 50%;

@@ -1,0 +1,13 @@
+.item-detail-container {
+    margin: 1em;
+
+    img {
+        width: 50%;
+        max-height: 245px;
+        object-fit: scale-down;
+    }
+}
+
+.item-header {
+    display: flex;
+}
