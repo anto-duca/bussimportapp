@@ -17,9 +17,6 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setTimeout(() => getProducts(), 2000)
-
-        return () => {
-        }
     }, [products])
 
     return (

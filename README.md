@@ -1,3 +1,17 @@
+# Versión en español
+Este proyecto, el primero que realizo con React, es un ecommerce de productos del hogar y electrónica de una empresa familiar en crecimiento y que al momento carece de página web y solo comercializan sus productos a través de Mercado Libre y por redes sociales. 
+
+En principio el objetivo es que la navegabilidad sea sencilla e intuitiva para el usuario, si bien este proyecto aún está en proceso y no cuenta con muchos elementos de su interfaz aún, se desarrollarán otros componentes, siempre bajo la premisa de la sencillez e intuitividad, para que el usuario complete satisfactoriamente el proceso de compra.
+
+Decidí trabajar con React-materialize y sus componentes, para contribuir con el dinamismo de la app y adicionar algunos componentes que me parecieron interesantes como por ejemplo el "preloader". Elegí react-materialize ya que anteriormente solo había trabajado con Bootstrap y me pareció un buen desafío para aprender. A medida que el proyecto avance incluiré otros componentes adicionales, por el momento solo me limité al mencionado y el navbar con el dropdown, siempre con el objetivo de que la navegabilidad sea sencilla e intuitiva. Adicionalmente instalé Fontawesome para incorporar el ícono del cart en el navbar y conocer como funciona en conjunto con React, en pos de aumentar mi conocimiento.
+
+# English version
+This project, my first one with React, is an ecommerce of home and electronics products for a growing family business that currently lacks a website and only sells their products through "Mercado Libre" and social media.
+
+At first, the objective is to make navigability simple and intuitive for the user, although this project is still in process and doesn't have many interface elements yet, other components will be developed, always under the premise of simplicity and intuitiveness for the user to successfully complete the purchase process.
+
+I decided to work with React-materialize and its components, to contribute to the dynamism of the app and add some components that I found interesting, such as the "preloader". I chose react-materialize as I had only worked with Bootstrap before and found it a good challenge to learn. As the project progresses I will include other additional components, for the moment I only limited myself to the aforementioned and the navbar with the drop-down menu, always with the aim of making the navigability simple and intuitive. I also installed Fontawesome to include the cart icon in the navbar and learn how it works in conjunction with React, to increase my knowledge.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

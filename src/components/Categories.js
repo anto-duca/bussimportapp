@@ -19,15 +19,19 @@ const Categories = () => {
 
     useEffect(() => {
         getCategory()
+
+        return () => {
+            setProductsCategory([]); // This worked for me
+        }
     },[categoryID])
 
     return (        
         <div className='containerCategory'>
             {productsCategory.map(element =>{
                 return (
-                    <div>
-                        <Link to={`/Detalle/${element.id}`} key= {element.id}> 
-                            <Item  id={element.id} stock={element.stock} image={element.image} title={element.title} price={element.price}  />
+                    <div key= {element.id}>
+                        <Link to={`/Detalle/${element.id}`} > 
+                            <Item id={element.id} stock={element.stock} image={element.image} title={element.title} price={element.price}  />
                         </Link>
                     </div>
                 )

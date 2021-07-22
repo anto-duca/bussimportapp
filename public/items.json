@@ -17,5 +17,25 @@
         "price": 5699,
         "category":"camaras",
         "description":"Esta videocámara  N-G4 Full HD negra cuenta con sensor de imagen CMOS, que te permitirá lograr trabajos de excelencia. Este tipo de tecnología digitaliza internamente cada píxel, lo que hace que la máquina procese los fotones a grandes velocidades por segundo. Además, su alta sensibilidad a la luz hará que el equipo soporte condiciones débiles de iluminación."
+    },
+
+    {
+        "id": 3,
+        "stock": 10,
+        "image": "/images/pava.jpg",
+        "title": "Pava Eléctrica",
+        "price": 4028,
+        "category":"pequenos-electrodomesticos",
+        "description":"¡Tené el agua caliente siempre lista! Con la pava eléctrica Daewoo WK5416 vas a poder disfrutar de una bebida caliente en minutos. Ganá tiempo y prepará eso que tanto te gusta. Bebidas calientes a tu gusto. ¿Sabías que, para mejorar el sabor, las bebidas calientes tienen que prepararse a determinada temperatura? Gracias al control que incorpora este modelo, lograrás que cada mate, té o café sea perfecto. La seguridad es muy importante, por eso, cuando el agua está lista, la pava se apaga automáticamente permitiendo, a su vez, ahorrar energía. COLOR BLANCO O NEGRO."
+    },
+
+    {
+        "id": 4,
+        "stock": 10,
+        "image": "/images/planchita.jpg",
+        "title": "Planchita De Pelo Cerámica",
+        "price": 4028,
+        "category":"cuidado-personal",
+        "description":"Marca: suzika. Modelo: SZ-PL047. Con interruptor encendido /apagado. Placas de calefacción de revestimiento de cerámica. Cable de alimentación giratorio 360°C. Longitud total del cable 1.44 M. Voltaje: 220-240Vca, 50/60 Hz. Potencia: 30W."
     }
 ]
