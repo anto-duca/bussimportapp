@@ -21,38 +21,24 @@ let items = [
     }
 ]
 
-const ItemList = () => {
-    const [products, setProducts] = useState([]);
+const ItemList = ({products}) => {
     
-    const getProducts = async () => {
-        let promesa = new Promise((resolve, reject)=>{
-            setTimeout (()=> {
-                resolve(items)
-                reject(new Error('Error'))
-            }, 2000);    
-        }) 
-
-        let data = await promesa;
-        setProducts(data)
-    }
-
-    useEffect(()=>{
-        getProducts()
-    }, [products])
-
     return ( 
-        products.map((producto) => {
+
+        products.map((product) => {
             return (
                     <Item
-                    key= {producto.id}
-                    id= {producto.id}
-                    image= {producto.image}
-                    title = {producto.title}
-                    price = {producto.price}     
-                    stock= {producto.stock}   
+                    key= {product.id}
+                    id= {product.id}
+                    image= {product.image}
+                    title = {product.title}
+                    price = {product.price}     
+                    stock= {product.stock}   
+                    category= {product.categoria}
                     />
             )
         })
+        
     )
 }
 

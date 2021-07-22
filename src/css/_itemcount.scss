@@ -5,6 +5,8 @@
         justify-content: center;
 
     &__qty {
+        margin: .7em;
+        font-size: 1rem;
         text-decoration: none;
         border: none;
         background-color: #ffff;
@@ -25,15 +27,12 @@
             background-color: #cccccc;
             color: #666666;
         }
-
     }
 
     &__input {
         text-align: center;
         max-width: max-content;
+        border: none;
     }
 
-    input[type=number] {
-        border-bottom: none !important;
-    }
 }
