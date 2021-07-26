@@ -1,29 +1,35 @@
 import React from 'react';
 import { useState } from 'react';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, onAdd, initial}) => {
+    const [qty, setQty] = useState(initial)
 
-    const [qty, setQty] = useState(initial);
-
-    const onAdd = (qty, stock) =>{
-        alert(`Agregaste ${qty} productos al carrito`)
-                
-        console.log(stock);
-        console.log(qty);            
+    const onDecrease = () => {
+        const newQty = qty-1
+        if(initial <= newQty){
+            setQty(newQty)
+        }
     }
-    
+
+    const onIncrease = () => {
+        const newQty = qty+1
+        if (newQty <= stock){
+            setQty(newQty)
+        }
+    }
+
     return (
         <>
-            <div className='item-count'>
+            <form className='item-count'>
                 <div>
-                    <button type='button' onClick={()=>{setQty(Math.max(0, qty - 1))}} className='item-count__qty'>-</button>
-                    <input type='number' disabled value={(stock<qty) ? stock : qty} className='item-count__input'/>
-                    <button type='button' onClick={()=>{ (qty<stock) ? setQty((qty + 1)) : alert(`Hay ${stock} unidades disponibles de este producto`) }} className='item-count__qty'>+</button>
+                    <button type='button' onClick={ onDecrease } className='item-count__qty'>-</button>
+                    <input disabled type='number' value={ (stock === 0) ? stock : qty } className='item-count__input'/>
+                    <button type='button' onClick={ onIncrease } className='item-count__qty'>+</button>
                 </div>
                 <div>
-                    <button type='submit' disabled={!stock || qty===0} onClick={()=>onAdd(qty, stock)} className='item-count__btn'>Agregar al carrito</button>
+                    <button disabled={!stock} onClick={ (e) => {onAdd(e, qty)} } className='item-count__btn'>Comprar</button>
                 </div>
-            </div>
+            </form>
         </>
     )
 }

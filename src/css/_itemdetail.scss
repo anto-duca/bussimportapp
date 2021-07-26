@@ -10,4 +10,17 @@
 
 .item-header {
     display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap ;
+}
+
+.btn-cta {
+    text-decoration: none;
+    padding: .5em;
+    margin-top: 1em;
+    background-color: color(primary);
+    border-radius: 6px;
+    color: color(secondary);
+    border: 2px solid color(primary);
+    cursor: pointer;
 }

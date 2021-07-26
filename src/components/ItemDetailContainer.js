@@ -22,8 +22,6 @@ const ItemDetailContainer = () => {
         .then((response) => response.json() )
         .then((json) => {
             setTimeout (() => {
-                console.log(json);
-                console.log(id);
                 let itemElegido = json.filter(element => element.id == id)
 
                 setItem(itemElegido)
@@ -43,16 +41,14 @@ const ItemDetailContainer = () => {
                         <ProgressBar />
                     </Col>
                 </Row>
-            : item.map((element) => {
-                return (
-                    <ItemDetail 
-                    key={element.id}
-                    title={element.title}
-                    description={element.description}
-                    image={element.image}
-                    price={element.price}
-                    />
-                )})
+                
+                : item.map((element) => {
+                    return (
+                        <ItemDetail 
+                        key={element.id}
+                        item={item}
+                        />
+                    )})
             }
         </>
     )
