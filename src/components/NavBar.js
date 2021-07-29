@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Icon, Dropdown } from 'react-materialize';
@@ -7,6 +7,26 @@ import 'materialize-css/dist/js/materialize.min.js';
 import 'material-icons/iconfont/material-icons.css';
 
 const NavBar = () => {
+    const [category, setCategory] = useState([])
+
+    const getCategory = async () => {
+        const data = await fetch('/items.json');
+        let responseData = await data.json();
+        let unique = responseData.map(item => (
+            {
+            name: item.name, 
+            category: item.category
+            }));
+
+        let filtered = unique.filter(obj => !unique[obj.name] && (unique[obj.name] = true));
+
+        setCategory(filtered)
+    }
+
+    useEffect(() => {
+        getCategory()
+    }, [])
+    
     return (
             <Navbar
                 alignLinks="right"
@@ -47,35 +67,21 @@ const NavBar = () => {
                     }}
                     trigger={<Link to='/' className='nb-link'>Productos<Icon right>arrow_drop_down</Icon></Link>}
                 >
-                    <NavLink exact to='/productos/categoria/pequenos-electrodomesticos'>Pequeños Electrodomésticos</NavLink>
-                    <NavLink exact to='/productos/categoria/cuidado-personal'>Cuidado Personal</NavLink>
-                    <NavLink exact to='/productos/categoria/camaras'>Camaras</NavLink>
+                    { category.map ( (category) => {
+                        return (
+                            <>
+                            <NavLink key={category.name} exact to={`/categoria/${category.category}`}>
+                                {category.name}
+                            </NavLink>
+                            </>
+                        )
+                    })
+                }
+
                 </Dropdown>
 
                 <CartWidget/>
             </Navbar>
-
-        // <nav className='nb z-depth-3'>
-        //     <Link to= '/' >
-        //         <p className='nb-logo'>Bussimport</p>
-        //     </Link>
-        //     <ul>
-        //             <Link to='/' className='nb-link'>Inicio</Link>
-        //         <li>
-        //             <Link to='/' className='nb-link'>Productos</Link>
-        //                 <ul className='menu_DD'>
-        //                         <NavLink to='/categoria/pequenos-electrodomesticos' className='nb-link'>Pequeños Electrodomésticos</NavLink>
-        //                         <NavLink to='/categoria/cuidado-personal' className='nb-link'>Cuidado Personal</NavLink>
-        //                         <NavLink to='/categoria/camaras' className='nb-link'>Camaras</NavLink>
-        //                 </ul>
-        //         </li>
-        //         <Link to='/' className='nb-link'>Nosotros</Link>
-        //     </ul>
-
-        //     <div>
-        //         <CartWidget/>
-        //     </div>
-        // </nav>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
+import ItemDetail from './ItemDetail'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
-import ItemDetail from './ItemDetail'
 import { Row, ProgressBar, Col } from 'react-materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
         .then((response) => response.json() )
         .then((json) => {
             setTimeout (() => {
-                let itemElegido = json.filter(element => element.id == id)
+                let itemElegido = json.find(element => element.id == id)
 
                 setItem(itemElegido)
             }, 2000)
@@ -42,13 +42,11 @@ const ItemDetailContainer = () => {
                     </Col>
                 </Row>
                 
-                : item.map((element) => {
-                    return (
-                        <ItemDetail 
-                        key={element.id}
-                        item={item}
-                        />
-                    )})
+                : 
+                    <ItemDetail 
+                    key={item.id}
+                    item={item}
+                    />
             }
         </>
     )

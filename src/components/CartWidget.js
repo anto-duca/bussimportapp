@@ -1,11 +1,15 @@
 import React from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faShoppingCart} from '@fortawesome/free-solid-svg-icons';
+import { Icon } from 'react-materialize';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
+import 'material-icons/iconfont/material-icons.css';
 
 const CartWidget = () => {
     return (
         <div className= 'nb-link'>
-            <FontAwesomeIcon icon={faShoppingCart} size="lg"/>  
+            <Icon>
+                shopping_cart
+            </Icon>
         </div>
     )
 }

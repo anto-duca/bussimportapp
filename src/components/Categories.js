@@ -1,42 +1,14 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Item from '../components/Item';
 
-const Categories = () => {
-
-    const [productsCategory, setProductsCategory] = useState([]);
-
-    const {categoryID} = useParams();
-
-    const getCategory = async () => {
-        const data = await fetch('/items.json')
-        const responseData = await data.json()
-        let categorySelected = responseData.filter(element => element.category === categoryID)
-        setProductsCategory(categorySelected)
-    }
-
-    useEffect(() => {
-        getCategory()
-
-        return () => {
-            setProductsCategory([]); // This worked for me
-        }
-    },[categoryID])
-
+const Categories = ({ productsCategory }) => {
+    console.log(productsCategory);
     return (        
-        <div className='containerCategory'>
-            {productsCategory.map(element =>{
-                return (
-                    <div key= {element.id}>
-                        <Link to={`/Detalle/${element.id}`} > 
-                            <Item id={element.id} stock={element.stock} image={element.image} title={element.title} price={element.price}  />
-                        </Link>
-                    </div>
-                )
-            })}
-        </div>
+        <>
+            { productsCategory.map(element =>
+                <Link to={`/categoria/${element.category}`} key={element.id} className="category">{element.name}</Link>)   
+            }
+        </>
     )
 }
 
