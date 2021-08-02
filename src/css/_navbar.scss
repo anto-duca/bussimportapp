@@ -8,9 +8,9 @@ nav {
 
 .nb-link {
     padding: 0 5em !important;
-
+    display: flex;
     @media only screen and (min-width: 992px) {
-        padding: 0 3em !important;
+        padding: 0 1em !important;
     }
 }
 

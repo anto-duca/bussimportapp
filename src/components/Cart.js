@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-    const { cart, removeItem, clear } = useContext(cartContext);
+    const { cart, removeItem, clear, totalPrice } = useContext(cartContext);
 
     return (
         <div className='cart'>
@@ -16,32 +16,38 @@ const Cart = () => {
 
             { cart.length > 0
             ?
-            <div className='cart-container'>
-                {cart.length > 0 && cart.map( (e) => {
-                    return (
-                            <div key={ e.id } className='cart-container__item'>
-                                <img src={ e.image } alt={ e.title }/>  
-                                <p> { e.title } </p>
-                                <p> Unidades: { e.qty }</p>
-                                <Icon onClick={() => removeItem(e.id)} className='cart-removeItem'>
-                                    clear
-                                </Icon>
-                            </div>
-                    )})
-                }
-                <div  className='cart-container__price'>
-                    <h5>Total</h5>
-                    <p> $ </p>
-                    <button> FINALIZAR COMPRA </button>
-                    <Link to={'/'}>
-                        <button> SEGUIR COMPRANDO </button>
-                    </Link>
-                    <button  onClick={() => clear()} className='cart-removeItem'> Remover todos los items </button>
+                <div className='cart-container'>
+                    {cart.length > 0 && cart.map( (e) => {
+                        return (
+                                <div key={ e.id } className='cart-container__item'>
+                                    <img src={ e.image } alt={ e.title }/>  
+                                    <p> { e.title } </p>
+                                    <p> Unidades: { e.qty }</p>
+                                    <p> ${ e.price } </p>
+                                    <Icon onClick={() => removeItem(e.id)} className='cart-remove-item'>
+                                        clear
+                                    </Icon>
+                                </div>
+                        )})
+                    }
+                    <div  className='cart-container__price'>
+                        <h5>Total</h5>
+                        <p> ${totalPrice} </p>
+                        <button> FINALIZAR COMPRA </button>
+                        <Link to={'/'}>
+                            <button> SEGUIR COMPRANDO </button>
+                        </Link>
+                        <button  onClick={() => clear()} className='cart-removeItem'> Remover todos los items </button>
+                    </div>
                 </div>
-            </div>
             
             :
-            <p> Tu carrito está vacío </p>
+                <>
+                    <p> Tu carrito está vacío </p>
+                    <Link to={'/'}>
+                        <button className='btn-empty-cart'> SEGUIR COMPRANDO </button>
+                    </Link>
+                </>
             }
         </div>
     )

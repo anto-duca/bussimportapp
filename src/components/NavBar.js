@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Icon, Dropdown } from 'react-materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'material-icons/iconfont/material-icons.css';
+import cartContext from '../context/cartContext';
 
 const NavBar = () => {
     const [category, setCategory] = useState([])
@@ -26,6 +27,8 @@ const NavBar = () => {
     useEffect(() => {
         getCategory()
     }, [])
+
+    const { totalQty } = useContext (cartContext)
     
     return (
             <Navbar
@@ -77,10 +80,12 @@ const NavBar = () => {
                         )
                     })
                 }
-
+                
                 </Dropdown>
 
-                <CartWidget/>
+                {
+                    totalQty != 0 && <CartWidget/>
+                }
             </Navbar>
     )
 }

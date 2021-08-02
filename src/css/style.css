@@ -23,11 +23,12 @@ nav {
 
 .nb-link {
   padding: 0 5em !important;
+  display: flex;
 }
 
 @media only screen and (min-width: 992px) {
   .nb-link {
-    padding: 0 3em !important;
+    padding: 0 1em !important;
   }
 }
 
@@ -220,6 +221,19 @@ nav {
   cursor: pointer;
 }
 
-.cart-removeItem {
+.cart-remove-item {
+  cursor: pointer;
+}
+
+.btn-empty-cart {
+  display: block;
+  width: 20%;
+  text-decoration: none;
+  padding: .5em;
+  margin-top: 1em;
+  background-color: #37392E;
+  border-radius: 6px;
+  color: #d0cddb;
+  border: 2px solid #37392E;
   cursor: pointer;
 }

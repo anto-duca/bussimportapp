@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Provider } from '../context/cartContext'
 
 const CustomProvider = ({children}) => {
@@ -8,16 +8,14 @@ const CustomProvider = ({children}) => {
     const [totalPrice, setTotalPrice] = useState(0);
 
     const addToCart = (item, qty) => { // agregar cierta cantidad de un ítem al carrito
-        console.log(item);
         let duplicate = isInCart(item.id)
 
         // Lógica que "reemplaza la cantidad, no la suma" si vuelve a agregar productos 
         if (duplicate) { //si el producto ya existe en el carrito, solo modifico cantidad
 
             let cartTmp = cart;
-            cartTmp.find(element => element.id === item.id).qty = qty;
+            cartTmp.find(element => element.id === item.id).qty = qty
             setCart(cartTmp);
-
         } else { // el producto no existe en el carrito
             setCart([...cart, { ...item, qty } ]);
         }
@@ -33,16 +31,34 @@ const CustomProvider = ({children}) => {
         // } else { // producto no existe en el carrito
         //     setCart([...cart, { ...item, qty } ]);
         // }
-        
-        setTotalQty(prev => prev + qty);
+        console.log(cart);
     }
 
+    const updateTotalQty = () => {
+        let total = 0
+        cart.map( (item) => {
+            total += item.qty
+        })
+        setTotalQty(total);
+    }
+
+    const updateTotalPrice = () => {
+        let total = 0
+        cart.map( (item) => {
+            total += item.qty * item.price
+        })
+        setTotalPrice(total);
+    }
+
+    useEffect ( ()=> {
+        updateTotalQty();
+        updateTotalPrice();
+    }, [cart])
+
     const removeItem = (id) => { // Remover un item del cart usando su id
-        let updatedCart = cart;
-        let itemToRemove = updatedCart.find (el => el.id === id);
-        let index = updatedCart.indexOf(itemToRemove);
-        updatedCart.splice(index, 1);
-        setCart([...updatedCart])
+        let cartTmp = cart;
+        cartTmp=cart.filter(element => element.id != id);
+        setCart([...cartTmp])
     }
 
     const clear = () => { // Remover todos los items
