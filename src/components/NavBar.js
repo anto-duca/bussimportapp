@@ -6,30 +6,31 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'material-icons/iconfont/material-icons.css';
 import cartContext from '../context/cartContext';
+import { getFirestore } from '../firebase';
 
 const NavBar = () => {
     const [category, setCategory] = useState([])
+    const { getTotalQty } = useContext (cartContext)
 
-    const getCategory = async () => {
-        const data = await fetch('/items.json');
-        let responseData = await data.json();
-        let unique = responseData.map(item => (
-            {
-            name: item.name, 
-            category: item.category
-            }));
-
-        let filtered = unique.filter(obj => !unique[obj.name] && (unique[obj.name] = true));
-
-        setCategory(filtered)
-    }
-
+    const totalQty= getTotalQty()
+    
     useEffect(() => {
-        getCategory()
+        const firestore = getFirestore()
+        const collection = firestore.collection("categories")
+        const query = collection.get()
+        query 
+            .then( (querySnapshot) => {
+                const documents = querySnapshot.docs
+                const categories = documents.map((doc)=>{
+                    return {id: doc.id, ...doc.data()}
+                })
+                setCategory(categories)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
     }, [])
 
-    const { totalQty } = useContext (cartContext)
-    
     return (
             <Navbar
                 alignLinks="right"
@@ -72,19 +73,18 @@ const NavBar = () => {
                 >
                     { category.map ( (category) => {
                         return (
-                            <>
-                            <NavLink key={category.name} exact to={`/categoria/${category.category}`}>
-                                {category.name}
-                            </NavLink>
-                            </>
+                            <li key={category.categoryID}>
+                                <NavLink exact to={`/categoria/${category.categoryID}`} className='dropdown-link'>
+                                    {category.categoryName}     
+                                </NavLink>
+                            </li>
                         )
                     })
                 }
                 
                 </Dropdown>
-
                 {
-                    totalQty != 0 && <CartWidget/>
+                    totalQty !== 0 && <CartWidget/>
                 }
             </Navbar>
     )

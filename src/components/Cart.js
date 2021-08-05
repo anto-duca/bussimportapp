@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import cartContext from '../context/cartContext';
 import { Icon } from 'react-materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'material-icons/iconfont/material-icons.css';
-import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -37,7 +37,7 @@ const Cart = () => {
                         <Link to={'/'}>
                             <button> SEGUIR COMPRANDO </button>
                         </Link>
-                        <button  onClick={() => clear()} className='cart-removeItem'> Remover todos los items </button>
+                        <button onClick={() => clear()} className='cart-removeItem'> Remover todos los items </button>
                     </div>
                 </div>
             

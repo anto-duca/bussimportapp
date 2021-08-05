@@ -13,7 +13,7 @@ const  ItemDetail = ({ item }) => {
     }
 
     return (
-            <div className='item-detail-container' key={ item.id } >
+            <div className='item-detail-container'>
                 <div className='item-header'> 
                     <img src={ item.image } alt={ item.title }/>  
 

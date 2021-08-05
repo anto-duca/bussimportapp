@@ -1,11 +1,11 @@
 import React from 'react';
 import './css/style.css';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
-import CustomProvider from './components/CustomProvider';
+import CustomProvider from './context/CustomProvider';
 
 function App() {
   return (
@@ -19,7 +19,6 @@ function App() {
               <Route exact path = {'/item/:id'} component = {ItemDetailContainer}/> 
               <Route exact path={'/cart'} component={Cart}/> 
             </Switch>
-          <Redirect to='/' />
         </BrowserRouter>
       </CustomProvider>
     </div>

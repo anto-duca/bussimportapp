@@ -1,37 +1,36 @@
-import React from 'react'
-import ItemDetail from './ItemDetail'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router';
+import ItemDetail from './ItemDetail';
 import { Row, ProgressBar, Col } from 'react-materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'material-icons/iconfont/material-icons.css';
+import { getFirestore } from '../firebase';
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
     const {id} = useParams();
-
-    const getItems = () => {
-        fetch('/items.json', {
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-
-        .then((response) => response.json() )
-        .then((json) => {
-            setTimeout (() => {
-                let itemElegido = json.find(element => element.id == id)
-
-                setItem(itemElegido)
-            }, 2000)
-        });
-    }
+    const history = useHistory()
 
     useEffect (() => {
-        getItems()
+        const firestore = getFirestore()
+        const collection = firestore.collection("products")
+        let query = collection.doc(id).get()
+
+        query
+            .then(doc => {
+                if(doc.exists) {
+                    setItem({id: doc.id, ...doc.data()})
+                }else{
+                    history.push("/")
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            }) 
     },[id])
+
+    console.log(item);
 
     return (
         <>
@@ -43,10 +42,7 @@ const ItemDetailContainer = () => {
                 </Row>
                 
                 : 
-                    <ItemDetail 
-                    key={item.id}
-                    item={item}
-                    />
+                    <ItemDetail item={item}/>
             }
         </>
     )

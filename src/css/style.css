@@ -22,13 +22,13 @@ nav {
 }
 
 .nb-link {
-  padding: 0 5em !important;
+  padding: 0 .5em !important;
   display: flex;
 }
 
 @media only screen and (min-width: 992px) {
   .nb-link {
-    padding: 0 1em !important;
+    padding: 0 1.5em !important;
   }
 }
 
