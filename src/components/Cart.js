@@ -33,7 +33,9 @@ const Cart = () => {
                     <div  className='cart-container__price'>
                         <h5>Total</h5>
                         <p> ${totalPrice} </p>
-                        <button> FINALIZAR COMPRA </button>
+                        <Link to={'/checkout'}>
+                            <button> FINALIZAR COMPRA </button>
+                        </Link>
                         <Link to={'/'}>
                             <button> SEGUIR COMPRANDO </button>
                         </Link>

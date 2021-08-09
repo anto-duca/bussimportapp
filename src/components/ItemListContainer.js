@@ -32,7 +32,6 @@ const ItemListContainer = () => {
 
         } else {
             let query = collection.where("categoryID", "==", categoryID)
-
             query = query.get()
             query
                 .then((snapshot)=>{
