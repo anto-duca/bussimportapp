@@ -104,7 +104,7 @@ const Checkout = () => {
                     </Button>
                     <Modal
                         actions={[
-                        <Button flat modal="close" node="button" waves="green">Cerrar</Button>
+                        <Button flat modal="close" node="button" waves="ligth">Cerrar</Button>
                         ]}
                         bottomSheet={false}
                         fixedFooter={false}
@@ -126,7 +126,7 @@ const Checkout = () => {
                         }}
                         // root={[object HTMLBodyElement]}
                     >
-                        {newOrder}
+                        <p>{newOrder}</p>
                     </Modal>
                     </div>
 

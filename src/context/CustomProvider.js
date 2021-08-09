@@ -3,17 +3,24 @@ import { Provider } from './cartContext'
 
 const CustomProvider = ({children}) => {
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState( () => {
+        if (localStorage.getItem('local-cart')) {
+            return JSON.parse(localStorage.getItem('local-cart'));
+        } else {
+            return [];
+        }
+    });
+
     // const [totalQty, setTotalQty] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect ( ()=> {
+        localStorage.setItem('local-cart', JSON.stringify(cart));
         getTotalQty();
         updateTotalPrice();
     }, [cart])
 
     const addToCart = (item, qty) => {
-        console.log('item', item);
         let duplicate = isInCart(item.id)
 
         if (duplicate) {
