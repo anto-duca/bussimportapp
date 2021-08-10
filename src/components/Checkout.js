@@ -36,21 +36,31 @@ const Checkout = () => {
 
     const createOrder = (e) =>{
         e.preventDefault();
+        const firestore = getFirestore();
+
+        let items = cart.map( (obj) => {
+                return {
+                    id: obj.id,
+                    title: obj.title,
+                    quantity: obj.qty,
+                    price: obj.price,
+                };
+            })
+            
+        console.log(items)
 
         const newOrder = {
             buyer: buyer,
-            items: cart,
+            items: items,
             date: firebase.firestore.Timestamp.fromDate(new Date()),
             total: totalPrice
         }
 
-        const firestore = getFirestore();
         const collection = firestore.collection("orders");
         const query = collection.add(newOrder);
 
         query
             .then ((result) => {
-                console.log(result);
                 setNewOrder(result.id);
                 let itemsRef = firestore.collection("products");
                 let batch = firestore.batch();
