@@ -20,7 +20,7 @@ const Checkout = () => {
     }
 
     const formValidation = () => {
-        if (!buyer.email) {
+        if (!buyer.email || !buyer.email2) {
             setEmailValidation('')
         }
         else if (buyer.email === buyer.email2) { 
@@ -104,7 +104,7 @@ const Checkout = () => {
                     </Button>
                     <Modal
                         actions={[
-                        <Button flat modal="close" node="button" waves="ligth">Cerrar</Button>
+                        <Button flat modal="close" node="button" waves="light">Cerrar</Button>
                         ]}
                         bottomSheet={false}
                         fixedFooter={false}

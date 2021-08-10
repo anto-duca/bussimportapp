@@ -237,3 +237,7 @@ nav {
   border: 2px solid #37392E;
   cursor: pointer;
 }
+
+.checkout-container {
+  margin: 1em;
+}
