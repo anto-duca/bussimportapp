@@ -19,7 +19,7 @@ At first, the objective is to make navigability simple and intuitive for the use
 I decided to work with React-materialize and its components, to contribute to the dynamism of the app and add some components that I found interesting, such as the "preloader". I chose react-materialize as I had only worked with Bootstrap before and found it a good challenge to learn. As the project progresses I will include other additional components, for the moment I only limited myself to the aforementioned and the navbar with the drop-down menu, always with the aim of making the navigability simple and intuitive.
 
 ### Demo
-[Demo:](/public/bussimport.gif)
+[Click here to Demo - Clic aquí para demo](/public/bussimport.gif)
 
 # Getting Started with Create React App
 
