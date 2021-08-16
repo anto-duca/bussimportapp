@@ -1,11 +1,13 @@
 $border-radius: 5px;
 .prod-container {
-    width: 100%;
+    width: 80%;
     display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
     margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
@@ -30,20 +32,34 @@ $border-radius: 5px;
             align-items: center;
     }
 
-    img {
-        width: 50%;
-        max-height: 170px;
-        object-fit: scale-down;
+    &__header {
+        min-height: 150px;
+        display: flex;
+            justify-content: center;
+            align-items: center;
+
+        img {
+            width: 60%;
+            max-height: 200px;
+            object-fit: scale-down;
+        }
     }
 
     &__body {
         align-self: flex-start;
         min-height: 100px;
         padding: .5em;
+        color: color(primary);
 
         h3 {
             margin: .5em 0;
             font-size: 1.3rem;
+            min-height: 40px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: 500;
         }
     }
 }

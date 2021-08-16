@@ -1,0 +1,15 @@
+.notFound {
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    margin: 1em 0;
+        
+        p {
+            margin: 1em 0;
+        }
+
+        button {
+            background-color: color(primary);
+        }
+}

@@ -38,7 +38,6 @@ const  ItemDetail = ({ item }) => {
                             </Link>
                             }
                         </div>
-
                 </div>
 
                 <p>{ item.description }</p>

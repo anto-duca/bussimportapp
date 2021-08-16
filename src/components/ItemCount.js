@@ -26,9 +26,7 @@ const ItemCount = ({stock, onAdd, initial}) => {
                     <input disabled type='number' value={ (stock === 0) ? stock : qty } className='item-count__input'/>
                     <button type='button' onClick={ onIncrease } className='item-count__qty'>+</button>
                 </div>
-                <div>
-                    <button disabled={!stock} onClick={ (e) => {onAdd(e, qty)} } className='item-count__btn'>Comprar</button>
-                </div>
+                <button disabled={!stock} onClick={ (e) => {onAdd(e, qty)} } className='item-count__btn'>Comprar</button>
             </form>
         </>
     )

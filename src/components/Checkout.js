@@ -15,8 +15,6 @@ const Checkout = () => {
             ...buyer,
             [e.target.name]: e.target.value
         })
-
-        formValidation()
     }
 
     const formValidation = () => {
@@ -36,6 +34,7 @@ const Checkout = () => {
 
     const createOrder = (e) =>{
         e.preventDefault();
+
         const firestore = getFirestore();
 
         let items = cart.map( (obj) => {
@@ -46,8 +45,6 @@ const Checkout = () => {
                     price: obj.price,
                 };
             })
-            
-        console.log(items)
 
         const newOrder = {
             buyer: buyer,
@@ -66,18 +63,22 @@ const Checkout = () => {
                 let batch = firestore.batch();
 
                 cart.forEach(
-                        (item) => {
-                            batch.update(itemsRef.doc(item.id), { stock: item.stock - item.qty});
-                        }
-                    )
+                    (item) => {
+                        batch.update(itemsRef.doc(item.id), { stock: item.stock - item.qty});
+                    }
+                )
 
                 batch.commit().then(() => {
-                        clear();
-                        setBuyer({name: '', lastname: '', phone: '', email: '', email2: ''});
+                    clear();
+                    setBuyer({name: '', lastname: '', phone: '', email: '', email2: ''});
                 });
-        })
+            }
+        )
+        .catch(err => {
+            console.log(err)
+        }) 
     }
-        
+
     return (
         <div className='checkout-container'>
 
@@ -104,14 +105,17 @@ const Checkout = () => {
                 <span> {emailValidation} </span>
 
                 <div>
-                    <Button
-                        onClick={createOrder}
-                        className="modal-trigger"
-                        href="#modal1"
-                        node="button"
-                    >
-                        Confirmar Compra 
-                    </Button>
+                    {
+                        (cart.length > 0 && buyer.name !== '' && buyer.phone !== '' && buyer.email !== '' && buyer.email2 !== '' && buyer.email === buyer.email2)
+                        && <Button
+                            onClick={createOrder}
+                            className="modal-trigger"
+                            href="#modal1"
+                            node="button"
+                        >
+                            Confirmar Compra 
+                        </Button>
+                    }
                     <Modal
                         actions={[
                         <Button flat modal="close" node="button" waves="light">Cerrar</Button>
@@ -134,18 +138,13 @@ const Checkout = () => {
                         preventScrolling: true,
                         startingTop: '4%'
                         }}
-                        // root={[object HTMLBodyElement]}
                     >
                         <p>{newOrder}</p>
                     </Modal>
                     </div>
-
-
             </div>
         </div>
     )
-
-
 }
 
 export default Checkout;

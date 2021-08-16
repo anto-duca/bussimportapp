@@ -35,7 +35,7 @@ const NavBar = () => {
             <Navbar
                 alignLinks="right"
                 brand={<Link to= '/' >
-                        <p className='nb-logo'>Bussimport</p>
+                        <p className='nb-logo'>Busimport</p>
                         </Link>}
                 id="mobile-nav"
                 menuIcon={<Icon>menu</Icon>}

@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
                 if(doc.exists) {
                     setItem({id: doc.id, ...doc.data()})
                 }else{
-                    history.push("/")
+                    history.push('/NotFound')
                 }
             })
             .catch(err => {
@@ -41,8 +41,7 @@ const ItemDetailContainer = () => {
                     </Col>
                 </Row>
                 
-                : 
-                    <ItemDetail item={item}/>
+                : <ItemDetail item={item}/>
             }
         </>
     )

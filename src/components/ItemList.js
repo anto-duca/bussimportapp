@@ -2,11 +2,10 @@ import React from 'react';
 import Item from './Item';
 
 const ItemList = ({products}) => {
-    
     return ( 
         <div className="prod-container">
             {products.map((product) => {
-            return (
+                return (
                     <Item
                     key= {product.id}
                     id= {product.id}
@@ -14,10 +13,9 @@ const ItemList = ({products}) => {
                     title = {product.title}
                     price = {product.price}     
                     stock= {product.stock}   
-                    category= {product.categoria}
                     />
-            )
-        })}
+                )
+            })}
         </div>
     )
 }

@@ -18,7 +18,7 @@
         border-radius: 6px;
         color: color(secondary);
         border: 2px solid color(primary);
-        cursor: pointer;
+        width: 250px;
 
         &:disabled, [disabled] {
             border: 1px solid #999999;
