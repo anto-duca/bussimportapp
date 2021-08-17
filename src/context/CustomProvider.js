@@ -11,7 +11,6 @@ const CustomProvider = ({children}) => {
         }
     });
 
-    // const [totalQty, setTotalQty] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect ( ()=> {
@@ -51,13 +50,13 @@ const CustomProvider = ({children}) => {
         setTotalPrice(total);
     }
 
-    const removeItem = (id) => { // Remover un item del cart usando su id
+    const removeItem = (id) => {
         let cartTmp = cart;
         cartTmp=cart.filter(element => element.id != id);
         setCart([...cartTmp])
     }
 
-    const clear = () => { // Remover todos los items
+    const clear = () => { 
         setCart([]);
         setTotalPrice(0);
     }
