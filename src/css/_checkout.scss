@@ -1,3 +1,46 @@
 .checkout-container {
     margin: 1em;
+
+    &__item {
+        display: grid;
+            grid-gap: .5rem;
+            grid-template-columns: minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(0, 45px);
+            justify-items: start;
+            align-items: center;
+        margin: 0 auto;
+        padding: 1em 0;
+        min-height: 4rem;
+        border-top: 1px solid #eee;
+
+        @media only screen and (min-width: 768px) {
+            max-width: 80%;
+        }
+    }
+}
+
+.total-price {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.cart-item {
+    justify-self: start;
+}
+
+.email-validation {
+    color: red
+}
+
+.modal-trigger {
+    margin-top: 1em;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding: .5em;
+    margin-top: 1em;
+    background-color: color(primary) !important; 
+    border-radius: 6px;
+    color: color(secondary);
+    border: 2px solid color(primary) !important;
+    cursor: pointer;
 }

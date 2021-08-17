@@ -33,7 +33,7 @@ const  ItemDetail = ({ item }) => {
                                     className='btn-cta'
                                     onClick={() => addToCart(item, itemQty)}
                                 >
-                                Termina tu compra de {itemQty} unidades
+                                Termina tu compra
                                 </button>
                             </Link>
                             }

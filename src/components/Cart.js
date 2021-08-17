@@ -39,7 +39,7 @@ const Cart = () => {
                         <Link to={'/'}>
                             <button> SEGUIR COMPRANDO </button>
                         </Link>
-                        <button onClick={() => clear()} className='cart-removeItem'> Remover todos los items </button>
+                        <button onClick={() => clear()} className='cart-removeItem'> LIMPIAR CARRITO </button>
                     </div>
                 </div>
             

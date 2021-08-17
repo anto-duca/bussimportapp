@@ -30,8 +30,6 @@ const ItemDetailContainer = () => {
             }) 
     },[id])
 
-    console.log(item);
-
     return (
         <>
             { item.length === 0 

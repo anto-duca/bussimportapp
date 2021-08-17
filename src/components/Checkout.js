@@ -3,6 +3,9 @@ import cartContext from '../context/cartContext';
 import { getFirestore } from '../firebase';
 import firebase from "firebase/app";
 import { Button, Modal } from 'react-materialize';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
+import 'material-icons/iconfont/material-icons.css';
 
 const Checkout = () => {
     const [ buyer, setBuyer ] = useState({ name: '', lastname: '', phone: '', email: '', email2: '' });
@@ -86,14 +89,14 @@ const Checkout = () => {
             {
                 cart.map( (e) => {
                     return (
-                            <div key={ e.id } className='cart-container__item'>
-                                <p> { e.title } </p>
+                            <div key={ e.id } className='checkout-container__item'>
+                                <p className='cart-item'> { e.title } </p>
                                 <p> Unidades: { e.qty }</p>
                                 <p> ${ e.price } </p>
                             </div>
                     )})
             }
-            <p> Total: ${totalPrice} </p>
+            <p className='total-price'> Total: ${totalPrice} </p>
 
             <h3> Detalle de tu compra </h3>
             <div>
@@ -102,7 +105,7 @@ const Checkout = () => {
                 <label htmlFor="tel">Teléfono<input type="text" name="phone" onChange={handleInputChange} id="tel" placeholder=" " value={buyer.phone}/></label>
                 <label htmlFor="email">Email<input type="email" name="email" onChange={handleInputChange} id="email" placeholder=" " value={buyer.email}/></label>
                 <label htmlFor="email2">Confirmá tu email<input type="email" name="email2" onChange={handleInputChange} id="email2" placeholder=" " value={buyer.email2}/></label>
-                <span> {emailValidation} </span>
+                <span className='email-validation'> {emailValidation} </span>
 
                 <div>
                     {
