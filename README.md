@@ -22,5 +22,5 @@ I decided to work with React-materialize and its components, to contribute to th
 [Click here to Demo - Clic aquí para demo](/public/bussimport.gif)
 
 ## En el directorio del proyecto, podes ejecutar la app con / In the project directory, you can run:
-### `npm start`
+### `npm install` + `npm start`
 [http://localhost:3000](http://localhost:3000) para verlo en el browser / to view it in the browser.
