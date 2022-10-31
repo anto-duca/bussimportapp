@@ -21,9 +21,6 @@ I decided to work with React-materialize and its components, to contribute to th
 ## Demo
 [Click here to Demo - Clic aquí para demo](/public/bussimport.gif)
 
-## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## In the project directory, you can run:
+## En el directorio del proyecto, podes ejecutar la app con / In the project directory, you can run:
 ### `npm start`
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[http://localhost:3000](http://localhost:3000) para verlo en el browser / to view it in the browser.
